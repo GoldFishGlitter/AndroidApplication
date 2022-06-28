@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table (username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
     }
 
     @Override
@@ -26,8 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists users");
     }
 
-    public  Boolean insertData(String username, String password)
-    {
+    public Boolean insertData(String username, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
@@ -35,27 +34,30 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = MyDB.insert("users", null, contentValues);
         if(result == -1)
             return false;
-        else
-            return true;
+        return true;
     }
 
     public Boolean checkusername(String username)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[] {username});
-        if(cursor.getCount() > 0)
+        if(cursor.getCount() > 0) {
+            cursor.close();
             return true;
-        else
-            return false;
+        }
+        cursor.close();
+        return false;
     }
 
     public Boolean checkusernamepassword(String username, String password)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username, password});
-        if(cursor.getCount() > 0)
-            return  true;
-        else
-            return false;
+        if(cursor.getCount() > 0) {
+            cursor.close();
+            return true;
+        }
+        cursor.close();
+        return false;
     }
 }
