@@ -1,6 +1,7 @@
 package com.example.androidapplication;
 
 import android.graphics.Canvas;
+import android.graphics.Picture;
 import android.view.SurfaceHolder;
 
 public class MainThread extends Thread{
@@ -10,6 +11,7 @@ public class MainThread extends Thread{
     private GameView gameView;
     private boolean running;
     public static Canvas canvas;
+
 
     public void setRunning(boolean running) {
         this.running = running;
