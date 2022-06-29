@@ -37,6 +37,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    Cursor readData() {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        if (MyDB != null) {
+            cursor = MyDB.rawQuery("Select * from users", null);
+        }
+        return cursor;
+    }
+
     public Boolean checkusername(String username)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();

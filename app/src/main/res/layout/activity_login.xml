@@ -26,7 +26,8 @@
         android:id="@+id/btnsignin1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign in"
+        android:layout_below="@+id/password1"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/password1"/>
+        android:text="Sign in" />
+
 </RelativeLayout>

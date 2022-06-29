@@ -2,7 +2,7 @@ package com.example.androidapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password, repassword;
     Button signup, signin;
     DBHelper DB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     if(pass.equals(repass)){
                         Boolean checkuser = DB.checkusername(user);
-                        if(checkuser==false){
+                        if(!checkuser){
                             Boolean insert = DB.insertData(user, pass);
-                            if(insert==true){
+                            if(!insert){
                                 Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                                 startActivity(intent);
