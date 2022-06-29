@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password, repassword;
-    Button signup, signin;
+    Button signup, signin, touserlist;
     DBHelper DB;
 
     @Override
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         repassword = (EditText) findViewById(R.id.repassword);
         signup = (Button) findViewById(R.id.btnsignup);
         signin = (Button) findViewById(R.id.btnsignin);
+        touserlist = (Button) findViewById(R.id.toRecyclerViewBtn);
         DB = new DBHelper(this);
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
                         Boolean checkuser = DB.checkusername(user);
                         if(!checkuser){
                             Boolean insert = DB.insertData(user, pass);
-                            if(!insert){
+                            if(insert){
                                 Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                                Intent intent = new Intent(getApplicationContext(),GameActivity.class);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -64,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        touserlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }
         });

@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/repassword"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="Register" />
 
     <Button
@@ -43,7 +43,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnsignup"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="Go to Sign in page!" />
+
+    <Button
+        android:id="@+id/toRecyclerViewBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnsignin"
+        android:layout_marginTop="20dp"
+        android:text="USER LIST" />
 
 </RelativeLayout>
