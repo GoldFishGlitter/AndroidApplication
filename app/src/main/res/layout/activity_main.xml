@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:background="@drawable/imagineFundalTest2"
     tools:context=".MainActivity">
 
 <EditText
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnsignup"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="34dp"
         android:text="Go to Sign in page!" />
 
     <Button
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnsignin"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="USER LIST" />
 
 </RelativeLayout>
