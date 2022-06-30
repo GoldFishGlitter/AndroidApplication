@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<String> userid, userlist;
+    ArrayList<String> user_name, user_pass;
     CustomAdapter customAdapter;
     DBHelper DB;
 
@@ -30,11 +30,11 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         DB = new DBHelper(HomeActivity.this);
-        userid = new ArrayList<>();
-        userlist = new ArrayList<>();
+        user_name = new ArrayList<>();
+        user_pass = new ArrayList<>();
         StoreDataInArrays();
 
-        customAdapter = new CustomAdapter(HomeActivity.this, userid, userlist);
+        customAdapter = new CustomAdapter(HomeActivity.this, user_name, user_pass);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
     }
@@ -45,8 +45,8 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                userid.add(cursor.getString(0));
-                userlist.add(cursor.getString(1));
+                user_name.add(cursor.getString(0));
+                user_pass.add(cursor.getString(1));
             }
         }
     }
